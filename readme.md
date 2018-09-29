@@ -1,6 +1,6 @@
 # react-editable-select
 
-### A select component which can switch to text input to allow adding new elements.
+### A select component that can be switched to text input to allow adding new elements.
 
 ## Prerequesites
 * reactstrap

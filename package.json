@@ -1,7 +1,7 @@
 {
   "name": "react-editable-select",
   "version": "1.0.0",
-  "description": "A select component which can switch to text input to allow adding new elements.",
+  "description": "A select component that can be switched to text input to allow adding new elements.",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
