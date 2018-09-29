@@ -14,19 +14,28 @@ class App extends React.Component {
             selectedOption: null,
             options: [{id: idSeq++, name: 'Item A'},
                 {id: idSeq++, name: 'Item B'},
-                {id: idSeq++, name: 'Item C'}]
+                {id: idSeq++, name: 'Item C'}],
+            textOptions: ["", "red", "green", "yellow"],
+            textValue: ''
         };
     }
 
+    _onTextOptionChange(ev) {
+        const {selectedOption, options, textOptions} = this.state;
+        this.setState({selectedOption, options, textOptions, textValue: ev.target.value});
+        console.log("new value %o", ev.target.value);
+    }
+
     _onChange(ev, option) {
-        console.log("onChange(ev,option=%o)", option)
-        this.setState({selectedOption: option});
+        const {options, textOptions, textValue} = this.state;
+        this.setState({selectedOption: option, options, textOptions, textValue});
+        console.log("new value %o", option);
     }
 
     render() {
-        const {selectedOption, options} = this.state;
+        const {selectedOption, options, textOptions, textValue} = this.state;
 
-        return (<Card>
+        return (<React.Fragment><Card>
             <CardBody>
                 <Form>
                     <FormGroup>
@@ -43,7 +52,20 @@ class App extends React.Component {
                     </FormGroup>
                 </Form>
             </CardBody>
-        </Card>);
+        </Card>
+            <Card>
+                <CardBody>
+                    <Form>
+                        <FormGroup>
+                            <Label for="input2">Input2:</Label>
+                            <EditableSelect name="input2"
+                                            value={textValue}
+                                            options={textOptions}
+                                            onChange={(ev, textOption) => this._onTextOptionChange(ev, textOption)}/>
+                        </FormGroup>
+                    </Form>
+                </CardBody>
+            </Card></React.Fragment>);
     }
 }
 
