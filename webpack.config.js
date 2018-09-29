@@ -5,6 +5,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
     filename: "./index.html"
 });
 module.exports = {
+    devtool: 'eval-source-map',
     entry: path.join(__dirname, "example/src/index.jsx"),
     module: {
         rules: [
